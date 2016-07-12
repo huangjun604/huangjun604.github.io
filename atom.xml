@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-07-12T04:23:33.000Z</updated>
+  <updated>2016-07-12T05:03:58.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Use try() to Avoid `nil` in Rails</title>
+    <link href="http://yoursite.com/2016/07/12/use-try-to-avoid-nil-in-rails/"/>
+    <id>http://yoursite.com/2016/07/12/use-try-to-avoid-nil-in-rails/</id>
+    <published>2016-07-12T04:23:33.000Z</published>
+    <updated>2016-07-12T05:03:58.000Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;Use-try-to-avoid-nil-in-rails&quot;&gt;&lt;a href=&quot;#Use-try-to-avoid-nil-in-rails&quot; class=&quot;headerlink&quot; title=&quot;Use try() to avoid nil in rails&quot;&gt;&lt;/a&gt;Use try() to avoid nil in rails&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;http://everydayrails.com/2011/04/28/rails-try-method.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://everydayrails.com/2011/04/28/rails-try-method.html&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;Use-try-to-avoid-nil-in-rails&quot;&gt;&lt;a href=&quot;#Use-try-to-avoid-nil-in-rails&quot; class=&quot;headerlink&quot; title=&quot;Use try() to avoid nil in rails&quot;&gt;&lt;
+    
+    </summary>
+    
+    
+      <category term="Ruby on Rails" scheme="http://yoursite.com/tags/Ruby-on-Rails/"/>
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
@@ -43,27 +64,6 @@
     
     </summary>
     
-    
-  </entry>
-  
-  <entry>
-    <title>Use try() to Avoid `nil` in Rails</title>
-    <link href="http://yoursite.com/2016/07/12/use-try-to-avoid-nil-in-rails/"/>
-    <id>http://yoursite.com/2016/07/12/use-try-to-avoid-nil-in-rails/</id>
-    <published>2016-07-12T04:23:33.000Z</published>
-    <updated>2016-07-12T05:03:58.000Z</updated>
-    
-    <content type="html">&lt;h3 id=&quot;Use-try-to-avoid-nil-in-rails&quot;&gt;&lt;a href=&quot;#Use-try-to-avoid-nil-in-rails&quot; class=&quot;headerlink&quot; title=&quot;Use try() to avoid nil in rails&quot;&gt;&lt;/a&gt;Use try() to avoid nil in rails&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;http://everydayrails.com/2011/04/28/rails-try-method.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://everydayrails.com/2011/04/28/rails-try-method.html&lt;/a&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;Use-try-to-avoid-nil-in-rails&quot;&gt;&lt;a href=&quot;#Use-try-to-avoid-nil-in-rails&quot; class=&quot;headerlink&quot; title=&quot;Use try() to avoid nil in rails&quot;&gt;&lt;
-    
-    </summary>
-    
-    
-      <category term="Ruby on Rails" scheme="http://yoursite.com/tags/Ruby-on-Rails/"/>
     
   </entry>
   
@@ -123,22 +123,36 @@
     <link href="http://yoursite.com/2016/01/16/deploy-rails-project-to-heroku/"/>
     <id>http://yoursite.com/2016/01/16/deploy-rails-project-to-heroku/</id>
     <published>2016-01-15T22:40:03.000Z</published>
-    <updated>2016-07-12T07:35:43.000Z</updated>
+    <updated>2016-07-12T07:39:04.000Z</updated>
     
     <content type="html">&lt;p&gt;The following guide covers the steps to deploy the rails app to Heroku.&lt;/p&gt;
 &lt;h3 id=&quot;Local-Workstation-Setup&quot;&gt;&lt;a href=&quot;#Local-Workstation-Setup&quot; class=&quot;headerlink&quot; title=&quot;Local Workstation Setup&quot;&gt;&lt;/a&gt;Local Workstation Setup&lt;/h3&gt;&lt;h4 id=&quot;Create-a-New-Account-in-Heroku&quot;&gt;&lt;a href=&quot;#Create-a-New-Account-in-Heroku&quot; class=&quot;headerlink&quot; title=&quot;Create a New Account in Heroku&quot;&gt;&lt;/a&gt;Create a New Account in Heroku&lt;/h4&gt;&lt;p&gt;Go to Heroku website and sign up a account by following the steps.&lt;/p&gt;
 &lt;h4 id=&quot;Download-the-Heroku-Toolkit&quot;&gt;&lt;a href=&quot;#Download-the-Heroku-Toolkit&quot; class=&quot;headerlink&quot; title=&quot;Download the Heroku Toolkit&quot;&gt;&lt;/a&gt;Download the Heroku Toolkit&lt;/h4&gt;&lt;p&gt;Download the Heroku Toolkit on the Download page in order to access to the Heroku command-line client, Foreman, and the Git revision control system.&lt;/p&gt;
 &lt;h4 id=&quot;Authenticate-with-Heroku&quot;&gt;&lt;a href=&quot;#Authenticate-with-Heroku&quot; class=&quot;headerlink&quot; title=&quot;Authenticate with Heroku&quot;&gt;&lt;/a&gt;Authenticate with Heroku&lt;/h4&gt;&lt;p&gt;Log in using the email address and password you used when creating your Heroku account:&lt;/p&gt;
-&lt;p&gt;```&lt;br&gt;$ heroku login&lt;br&gt;Email:&lt;br&gt;Password (typing will be hidden)&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;#### Add SSH key to Heroku&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;$ ssh-keygen -t rsa&lt;br&gt;enerating public/private rsa key pair.&lt;br&gt;Enter file in which to save the key : test&lt;br&gt;$ heroku keys:add ~/.ssh/test.pub&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;### Setup the Rails Application&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;#### Database&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;Heroku is a production environment, make sure the postgresql is in production group:&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;``` ruby&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;group :production do gem ‘pg’end&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h3 id=&quot;Deploy-Application-to-Heroku&quot;&gt;&lt;a href=&quot;#Deploy-Application-to-Heroku&quot; class=&quot;headerlink&quot; title=&quot;Deploy Application to Heroku&quot;&gt;&lt;/a&gt;Deploy Application to Heroku&lt;/h3&gt;&lt;h4 id=&quot;Create-project-to-Heroku&quot;&gt;&lt;a href=&quot;#Create-project-to-Heroku&quot; class=&quot;headerlink&quot; title=&quot;Create project to Heroku&quot;&gt;&lt;/a&gt;Create project to Heroku&lt;/h4&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;$ heroku create heroku-app-name&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;pre&gt;&lt;code&gt;$ heroku loginEmail:Password (typing will be hidden)&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&quot;Add-SSH-key-to-Heroku&quot;&gt;&lt;a href=&quot;#Add-SSH-key-to-Heroku&quot; class=&quot;headerlink&quot; title=&quot;Add SSH key to Heroku&quot;&gt;&lt;/a&gt;Add SSH key to Heroku&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;$ ssh-keygen -t rsa
+enerating public/private rsa key pair.
+Enter file in which to save the key : test
+$ heroku keys:add ~/.ssh/test.pub
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;Setup-the-Rails-Application&quot;&gt;&lt;a href=&quot;#Setup-the-Rails-Application&quot; class=&quot;headerlink&quot; title=&quot;Setup the Rails Application&quot;&gt;&lt;/a&gt;Setup the Rails Application&lt;/h3&gt;&lt;h4 id=&quot;Database&quot;&gt;&lt;a href=&quot;#Database&quot; class=&quot;headerlink&quot; title=&quot;Database&quot;&gt;&lt;/a&gt;Database&lt;/h4&gt;&lt;p&gt;Heroku is a production environment, make sure the postgresql is in production group:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;group :production do
+ gem ‘pg’
+end
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;Deploy-Application-to-Heroku&quot;&gt;&lt;a href=&quot;#Deploy-Application-to-Heroku&quot; class=&quot;headerlink&quot; title=&quot;Deploy Application to Heroku&quot;&gt;&lt;/a&gt;Deploy Application to Heroku&lt;/h3&gt;&lt;h4 id=&quot;Create-project-to-Heroku&quot;&gt;&lt;a href=&quot;#Create-project-to-Heroku&quot; class=&quot;headerlink&quot; title=&quot;Create project to Heroku&quot;&gt;&lt;/a&gt;Create project to Heroku&lt;/h4&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;$ heroku create heroku-app-name
+&lt;/code&gt;&lt;/pre&gt;
 &lt;h4 id=&quot;Add-git&quot;&gt;&lt;a href=&quot;#Add-git&quot; class=&quot;headerlink&quot; title=&quot;Add git&quot;&gt;&lt;/a&gt;Add git&lt;/h4&gt;&lt;p&gt;If you haven’t set git yet, the command above may not automatically add git address, you need add it manually:&lt;/p&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;$ git remote add herokugit@heroku.com:&amp;#123;heroku-app-name&amp;#125;.git&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;$ git remote add heroku
+git@heroku.com:{heroku-app-name}.git
+&lt;/code&gt;&lt;/pre&gt;
 &lt;h4 id=&quot;Push-to-Heroku-server&quot;&gt;&lt;a href=&quot;#Push-to-Heroku-server&quot; class=&quot;headerlink&quot; title=&quot;Push to Heroku server&quot;&gt;&lt;/a&gt;Push to Heroku server&lt;/h4&gt;&lt;p&gt;Because the project is in the sub-directory, you need use subtree to push the sub-directory to the Heroku server:&lt;/p&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;$ git subtree push --prefix Code/subdirectory heroku master&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;$ git subtree push --prefix Code/subdirectory heroku master
+&lt;/code&gt;&lt;/pre&gt;
 &lt;h4 id=&quot;Migrating-Database&quot;&gt;&lt;a href=&quot;#Migrating-Database&quot; class=&quot;headerlink&quot; title=&quot;Migrating Database&quot;&gt;&lt;/a&gt;Migrating Database&lt;/h4&gt;&lt;p&gt;If you are using the database in your application you need to manually migrate the database by running:&lt;/p&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;$ heroku run rake db:migrate&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h4 id=&quot;Open-Website&quot;&gt;&lt;a href=&quot;#Open-Website&quot; class=&quot;headerlink&quot; title=&quot;Open Website&quot;&gt;&lt;/a&gt;Open Website&lt;/h4&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;$ heroku open&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;$ heroku run rake db:migrate
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&quot;Open-Website&quot;&gt;&lt;a href=&quot;#Open-Website&quot; class=&quot;headerlink&quot; title=&quot;Open Website&quot;&gt;&lt;/a&gt;Open Website&lt;/h4&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;$ heroku open
+&lt;/code&gt;&lt;/pre&gt;
 </content>
     
     <summary type="html">
