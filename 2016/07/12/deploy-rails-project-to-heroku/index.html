@@ -13,11 +13,11 @@
 
     <title>
         
-          Stephen&#39;s Blog
+          Deploy Rails Project to Heroku - Stephen&#39;s Blog
         
     </title>
 
-    <link rel="canonical" href="http://yoursite.com/">
+    <link rel="canonical" href="http://yoursite.com/2016/07/12/deploy-rails-project-to-heroku/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -133,232 +133,170 @@
 
 
     <!-- Main Content -->
-    <!-- Page Header -->
-<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    
+<!-- Image to hack wechat -->
+<!-- <img src="http://yoursite.com/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('/img/home-bg.jpg')
+    }
+</style>
+<header class="intro-header" >
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                <div class="site-heading">
-                    <h1>Stephen&#39;s Blog</h1>
-                    <!--<hr class="small">-->
-                    <span class="subheading"></span>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/tags/#Ruby on Rails" title="Ruby on Rails">Ruby on Rails</a>
+                        
+                    </div>
+                    <h1>Deploy Rails Project to Heroku</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by Stephen Huang on
+                        2016-07-12
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
 
-
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        
-
-<!-- USE SIDEBAR -->
     <!-- Post Container -->
             <div class="
-                col-lg-8 col-lg-offset-1
-                col-md-8 col-md-offset-1
-                col-sm-12
-                col-xs-12
-                post-container
-            ">
-            
-                <!-- Main Content -->
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
 
+                <p>The following guide covers the steps to deploy the rails app to Heroku.</p>
+<p>###Local Workstation Setup</p>
+<p>####Create a New Account in Heroku</p>
+<p>Go to Heroku website and sign up a account by following the steps.</p>
+<p>####Download the Heroku Toolkit</p>
+<p>Download the Heroku Toolkit on the Download page in order to access to the Heroku command-line client, Foreman, and the Git revision control system.</p>
+<p>####Authenticate with Heroku</p>
+<p>Log in using the email address and password you used when creating your Heroku account:</p>
+<pre><code>$ heroku login
+#Enter your Heroku credentials.
+Email:
+Password (typing will be hidden):
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">####Add SSH key to Heroku</div></pre></td></tr></table></figure>
 
-<div class="post-preview">
+$ ssh-keygen -t rsa
+enerating public/private rsa key pair.
+Enter file in which to save the key : test
+$ heroku keys:add ~/.ssh/test.pub
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">###Setup the Rails Application</div><div class="line"></div><div class="line">####Database</div><div class="line"></div><div class="line">Heroku is a production environment, make sure the postgresql is in production group:</div></pre></td></tr></table></figure>
 
-    <a href="/2016/07/12/deploy-rails-project-to-heroku/">
-        <h2 class="post-title">
-            Deploy Rails Project to Heroku
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            The following guide covers the steps to deploy the rails app to Heroku.
-###Local Workstation Setup
-####Create a New Account in Heroku
-Go to Heroku website and sign up a account by following the ste......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Stephen Huang on
-        2016-07-12
-    </p>
+group :production do
+ gem ‘pg’
+end
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">###Deploy Application to Heroku</div><div class="line"></div><div class="line">####Create project to Heroku</div></pre></td></tr></table></figure>
 
-</div>
-<hr>
+$ heroku create heroku-app-name
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">####Add git</div><div class="line"></div><div class="line">If you haven&apos;t set git yet, the command above may not automatically add git address, you need add it manually:</div></pre></td></tr></table></figure>
 
-<div class="post-preview">
+$ git remote add heroku
+git@heroku.com:{heroku-app-name}.git
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">####Push to Heroku server</div><div class="line"></div><div class="line">Because the project is in the sub-directory, you need use subtree to push the sub-directory to the Heroku server:</div></pre></td></tr></table></figure>
 
-    <a href="/2016/07/12/use-try-to-avoid-nil-in-rails/">
-        <h2 class="post-title">
-            Use try() to Avoid `nil` in Rails
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            Use try() to avoid nil in railshttp://everydayrails.com/2011/04/28/rails-try-method.html
-...
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Stephen Huang on
-        2016-07-12
-    </p>
+$ git subtree push --prefix Code/subdirectory heroku master
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">####Migrating Database</div><div class="line"></div><div class="line">If you are using the database in your application you need to manually migrate the database by running:</div></pre></td></tr></table></figure>
 
-</div>
-<hr>
+$ heroku run rake db:migrate
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">####Open Website</div></pre></td></tr></table></figure>
 
-<div class="post-preview">
+$ heroku open
+</code></pre>
 
-    <a href="/2016/07/12/hello-world/">
-        <h2 class="post-title">
-            Hello World
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Qu......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Stephen Huang on
-        2016-07-12
-    </p>
+                <hr>
 
-</div>
-<hr>
+                
 
-<div class="post-preview">
+                <ul class="pager">
+                    
+                    
+                        <li class="next">
+                            <a href="/2016/07/12/use-try-to-avoid-nil-in-rails/" data-toggle="tooltip" data-placement="top" title="Use try() to Avoid `nil` in Rails">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
 
-    <a href="/2016/04/30/blogs/">
-        <h2 class="post-title">
-            Blogs
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            JekyllWebsite: http://jekyllrb.com/docs/home/
-Theme: https://github.com/joshgerdes/jekyll-uno
-HexoWebsite: https://hexo.io
-Theme: https://github.com/iissnan/hexo-theme-next
-...
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Stephen Huang on
-        2016-04-30
-    </p>
+                
 
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2016/04/20/2016-04-20/">
-        <h2 class="post-title">
-            PostgreSQL - TRUNCATE
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            TRUNCATETRUNCATE – empty a table or set of tables
-12TRUNCATE [ TABLE ] [ ONLY ] name [ * ] [, ... ]    [ RESTART IDENTITY | CONTINUE IDENTITY ] [ CASCADE | RESTRICT ]
-TRUNCATE quickly removes all r......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Stephen Huang on
-        2016-04-20
-    </p>
-
-</div>
-<hr>
-
-
-
-<!-- Pager -->
-
-<ul class="pager">
-    
-    
-</ul>
-
+                
 
             </div>
+    <!-- Side Catalog Container -->
+        
+
     <!-- Sidebar Container -->
+
             <div class="
-                col-lg-3 col-lg-offset-0
-                col-md-3 col-md-offset-0
-                col-sm-12
-                col-xs-12
-                sidebar-container
-            ">
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
                 <!-- Featured Tags -->
                 
 
-                <!-- Short About -->
-                <section class="visible-md visible-lg">
-                    <hr><h5><a href="/about/">ABOUT ME</a></h5>
-                    <div class="short-about">
-
-                        
-
-                        
-                            <p>Passion Ruby Developer!</p>
-                        
-
-                        <!-- SNS Link -->
-                        <ul class="list-inline">
-                            
-                            
-                            
-
-                            
-
-                            
-
-                            
-                                <li>
-                                    <a target="_blank"  href="https://github.com/huangjun604">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                                        </span>
-                                    </a>
-                                </li>
-                            
-                            
-                            
-                            
-                                <li>
-                                    <a target="_blank"  href="https://www.linkedin.com/in/jun-huang-477a12a1">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
-                                        </span>
-                                    </a>
-                                </li>
-                            
-                        </ul>
-                    </div>
-                </section>
-                
                 <!-- Friends Blog -->
                 
             </div>
-        
+
+        </div>
     </div>
-</div>
+</article>
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("http://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
 
 
     <!-- Footer -->
